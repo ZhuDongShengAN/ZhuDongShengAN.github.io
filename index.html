@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>朱东昇 - 个人作品集</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <nav>
+        <div class="nav-wrap">
+            <div class="logo">
+                <img src="images/zds-logo.png" alt="ZDS Logo">
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="active">首页</a>
+                <a href="about.html">关于我</a>
+                <a href="hobby.html">爱好记录</a>
+                <a href="skill.html">技能展示</a>
+                <a href="works.html">作品展示</a>
+                <a href="contact.html">联系我</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 首页 Hero -->
+    <section id="home">
+        <div class="hero-text">
+            <h1>朱东昇</h1>
+            <p class="school">安徽邮电职业技术学院 · 计算机与网络学院｜大二学生</p>
+            <p class="sub-title">课程实训 · 个人作品集网站</p>
+            <div class="hero-btns">
+                <a href="about.html" class="btn">关于我</a>
+                <a href="works.html" class="btn btn-line">查看作品</a>
+            </div>
+        </div>
+        <div class="hero-img">
+            <img src="images/id-photo.jpg" alt="个人证件照">
+        </div>
+    </section>
+
+    <!-- 首页简介 -->
+    <section id="intro">
+        <h2 class="section-title">欢迎来到我的个人网站</h2>
+        <p>这里是朱东昇的个人作品集，展示我的学习经历、生活爱好与实训成果。</p>
+        <p>你可以通过上方导航，分别查看我的<a href="about.html">关于我</a>、<a href="hobby.html">爱好记录</a>、<a href="skill.html">技能展示</a>、<a href="works.html">作品展示</a>和<a href="contact.html">联系我</a>页面。</p>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        © 2026 朱东昇｜个人作品集网站 | 前端实训作业
+    </footer>
+
+    <!-- 点击图片放大预览（灯箱） -->
+    <div class="lightbox" id="lightbox">
+        <img id="lightbox-img" src="" alt="大图预览">
+        <span class="lightbox-close" id="lightbox-close">×</span>
+    </div>
+    <script>
+        (function () {
+            var lightbox = document.getElementById('lightbox');
+            var lightboxImg = document.getElementById('lightbox-img');
+            var closeBtn = document.getElementById('lightbox-close');
+            function openLightbox(src) { lightboxImg.src = src; lightbox.style.display = 'flex'; }
+            function closeLightbox() { lightbox.style.display = 'none'; lightboxImg.src = ''; }
+            document.querySelectorAll('#home img, #intro img').forEach(function (img) {
+                img.style.cursor = 'zoom-in';
+                img.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    openLightbox(img.getAttribute('src'));
+                });
+            });
+            lightbox.addEventListener('click', function (e) {
+                if (e.target === lightbox || e.target === closeBtn) closeLightbox();
+            });
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLightbox(); });
+        })();
+    </script>
+
+</body>
+</html>

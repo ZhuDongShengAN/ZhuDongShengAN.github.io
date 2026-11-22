@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱好记录 - 朱东昇个人作品集</title>
+    <link rel="stylesheet" href="css/hobby.css">
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <nav>
+        <div class="nav-wrap">
+            <div class="logo">
+                <img src="images/zds-logo.png" alt="ZDS Logo">
+            </div>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="about.html">关于我</a>
+                <a href="hobby.html" class="active">爱好记录</a>
+                <a href="skill.html">技能展示</a>
+                <a href="works.html">作品展示</a>
+                <a href="contact.html">联系我</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 爱好记录 -->
+    <section id="hobby">
+        <h2 class="section-title">爱好记录 Life & Hobbies</h2>
+
+        <div class="hobby-card-wrap">
+            <div class="hobby-card">
+                <h3>🎞 摄影记录</h3>
+                <div class="hobby-img-box">
+                    <img src="images/photo1.jpg" alt="玄武门">
+                </div>
+                <p>课余外出旅行，拍摄古建筑、自然风光，记录沿途风景。</p>
+            </div>
+
+            <div class="hobby-card">
+                <h3>🎮 游戏记录</h3>
+                <div class="hobby-img-box">
+                    <img src="images/game.jpg" alt="游戏对局胜利">
+                </div>
+                <p>休闲竞技游戏，和朋友组队游玩，锻炼反应与团队配合。</p>
+            </div>
+
+            <div class="hobby-card">
+                <h3>🎵 音乐鉴赏</h3>
+                <div class="hobby-img-box">
+                    <img src="images/music.jpg" alt="音乐软件">
+                </div>
+                <div class="hobby-img-box">
+                    <img src="images/music2.jpg" alt="音乐软件个人主页">
+                </div>
+                <p>长期听歌，积累歌单，音乐是日常放松方式。</p>
+            </div>
+        </div>
+
+        <div class="hobby-card-wrap">
+            <div class="hobby-card">
+                <div class="hobby-img-box">
+                    <img src="images/photo2.jpg" alt="中山陵">
+                </div>
+            </div>
+
+            <div class="hobby-card">
+                <div class="hobby-img-box">
+                    <img src="images/photo3.jpg" alt="明孝陵">
+                </div>
+            </div>
+
+            <div class="hobby-card">
+                <div class="hobby-img-box">
+                    <img src="images/photo4.jpg" alt="江南园林">
+                </div>
+            </div>
+        </div>
+
+        <div class="hobby-card-wrap">
+            <div class="hobby-card">
+                <div class="hobby-img-box">
+                    <img src="images/photo5.jpg" alt="古树">
+                </div>
+                <div class="hobby-text">
+                    <h4>古树绿荫</h4>
+                    <p>枝叶繁茂的古树，记录旅行中安静自然的一角。</p>
+                </div>
+            </div>
+
+            <div class="hobby-card">
+                <div class="hobby-img-box">
+                    <img src="images/photo6.jpg" alt="室内陈设">
+                </div>
+                <div class="hobby-text">
+                    <h4>古典陈设</h4>
+                    <p>传统室内布置，感受古建筑与器物陈列的氛围。</p>
+                </div>
+            </div>
+
+            <div class="hobby-card">
+                <div class="hobby-img-box">
+                    <img src="images/photo7.jpg" alt="塔楼">
+                </div>
+                <div class="hobby-text">
+                    <h4>古塔掠影</h4>
+                    <p>仰视古塔建筑，记录传统楼阁的层次与气势。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        © 2026 朱东昇｜个人作品集网站 | 前端实训作业
+    </footer>
+
+    <!-- 点击图片放大预览（灯箱） -->
+    <div class="lightbox" id="lightbox">
+        <img id="lightbox-img" src="" alt="大图预览">
+        <span class="lightbox-close" id="lightbox-close">×</span>
+    </div>
+    <script>
+        (function () {
+            var lightbox = document.getElementById('lightbox');
+            var lightboxImg = document.getElementById('lightbox-img');
+            var closeBtn = document.getElementById('lightbox-close');
+            function openLightbox(src) { lightboxImg.src = src; lightbox.style.display = 'flex'; }
+            function closeLightbox() { lightbox.style.display = 'none'; lightboxImg.src = ''; }
+            document.querySelectorAll('#hobby img').forEach(function (img) {
+                img.style.cursor = 'zoom-in';
+                img.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    openLightbox(img.getAttribute('src'));
+                });
+            });
+            lightbox.addEventListener('click', function (e) {
+                if (e.target === lightbox || e.target === closeBtn) closeLightbox();
+            });
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLightbox(); });
+        })();
+    </script>
+
+</body>
+</html>

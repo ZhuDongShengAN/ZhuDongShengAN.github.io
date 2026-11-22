@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品展示 - 朱东昇个人作品集</title>
+    <link rel="stylesheet" href="css/works.css">
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <nav>
+        <div class="nav-wrap">
+            <div class="logo">
+                <img src="images/zds-logo.png" alt="ZDS Logo">
+            </div>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="about.html">关于我</a>
+                <a href="hobby.html">爱好记录</a>
+                <a href="skill.html">技能展示</a>
+                <a href="works.html" class="active">作品展示</a>
+                <a href="contact.html">联系我</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 作品展示 -->
+    <section id="works">
+        <h2 class="section-title">作品展示区 Portfolio Showcase</h2>
+        <div class="work-wrap">
+            <div class="work-item">
+                <div class="work-img-area">
+                    <img src="images/work1.png" alt="网站设计PPT">
+                </div>
+                <div class="work-desc">
+                    <h4>个人作品集网站设计PPT</h4>
+                    <p>网站需求分析、栏目规划、页面布局设计汇报PPT，为本网页的设计文档。</p>
+                </div>
+            </div>
+
+            <div class="work-item">
+                <div class="work-img-area">
+                    <img src="images/work2.png" alt="ENSP拓扑">
+                </div>
+                <div class="work-desc">
+                    <h4>ENSP VLAN交换实训</h4>
+                    <p>多交换机VLAN划分、链路聚合、Trunk配置实训，实现不同VLAN隔离通信。</p>
+                </div>
+            </div>
+
+            <div class="work-item">
+                <div class="work-img-area">
+                    <img src="images/work3.png" alt="CAD户型图">
+                </div>
+                <div class="work-desc">
+                    <h4>CAD住宅户型平面图</h4>
+                    <p>使用AutoCAD绘制住宅平面图纸，划分房间、墙体、门窗布局。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        © 2026 朱东昇｜个人作品集网站 | 前端实训作业
+    </footer>
+
+    <!-- 点击图片放大预览（灯箱） -->
+    <div class="lightbox" id="lightbox">
+        <img id="lightbox-img" src="" alt="大图预览">
+        <span class="lightbox-close" id="lightbox-close">×</span>
+    </div>
+    <script>
+        (function () {
+            var lightbox = document.getElementById('lightbox');
+            var lightboxImg = document.getElementById('lightbox-img');
+            var closeBtn = document.getElementById('lightbox-close');
+            function openLightbox(src) { lightboxImg.src = src; lightbox.style.display = 'flex'; }
+            function closeLightbox() { lightbox.style.display = 'none'; lightboxImg.src = ''; }
+            document.querySelectorAll('#works img').forEach(function (img) {
+                img.style.cursor = 'zoom-in';
+                img.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    openLightbox(img.getAttribute('src'));
+                });
+            });
+            lightbox.addEventListener('click', function (e) {
+                if (e.target === lightbox || e.target === closeBtn) closeLightbox();
+            });
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLightbox(); });
+        })();
+    </script>
+
+</body>
+</html>

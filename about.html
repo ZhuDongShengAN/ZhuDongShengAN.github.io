@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>关于我 - 朱东昇个人作品集</title>
+    <link rel="stylesheet" href="css/about.css">
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <nav>
+        <div class="nav-wrap">
+            <div class="logo">
+                <img src="images/zds-logo.png" alt="ZDS Logo">
+            </div>
+            <div class="nav-links">
+                <a href="index.html">首页</a>
+                <a href="about.html" class="active">关于我</a>
+                <a href="hobby.html">爱好记录</a>
+                <a href="skill.html">技能展示</a>
+                <a href="works.html">作品展示</a>
+                <a href="contact.html">联系我</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 关于我 -->
+    <section id="about">
+        <h2 class="section-title">关于我 About Me</h2>
+        <div class="about-content">
+            <div class="about-img">
+                <img src="images/id-photo.jpg" alt="个人证件照">
+            </div>
+            <div class="about-text">
+                <p>安徽邮电职业技术学院计算机与网络学院在校大二学生。平时喜欢出门旅行拍照记录风景、聆听音乐，闲暇时间会打游戏放松。</p>
+                <p>正在学习路由交换、前端网页开发、CAD绘图，本次网站为前端实训作业，用来展示我的学习成果与生活爱好。</p>
+                <div class="tag-group">
+                    <span class="tag">🖧 网络实训</span>
+                    <span class="tag">🌐 网页前端</span>
+                    <span class="tag">📐 CAD绘图</span>
+                    <span class="tag">📷 摄影</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        © 2026 朱东昇｜个人作品集网站 | 前端实训作业
+    </footer>
+
+    <!-- 点击图片放大预览（灯箱） -->
+    <div class="lightbox" id="lightbox">
+        <img id="lightbox-img" src="" alt="大图预览">
+        <span class="lightbox-close" id="lightbox-close">×</span>
+    </div>
+    <script>
+        (function () {
+            var lightbox = document.getElementById('lightbox');
+            var lightboxImg = document.getElementById('lightbox-img');
+            var closeBtn = document.getElementById('lightbox-close');
+            function openLightbox(src) { lightboxImg.src = src; lightbox.style.display = 'flex'; }
+            function closeLightbox() { lightbox.style.display = 'none'; lightboxImg.src = ''; }
+            document.querySelectorAll('#about img').forEach(function (img) {
+                img.style.cursor = 'zoom-in';
+                img.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    openLightbox(img.getAttribute('src'));
+                });
+            });
+            lightbox.addEventListener('click', function (e) {
+                if (e.target === lightbox || e.target === closeBtn) closeLightbox();
+            });
+            document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeLightbox(); });
+        })();
+    </script>
+
+</body>
+</html>
